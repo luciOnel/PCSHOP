@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechStore - Магазин компьютеров</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Шапка сайта с меню -->                                                                     
+    <header>
+        <div class="header-container">  
+            <div class="logo">
+                <div class="logo-placeholder">TS</div>
+                <h1>TechStore</h1>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="product.html">Товары</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                    <li><button class="auth-btn" id="authButton">Войти</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Модальное окно авторизации -->
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="auth-tabs">
+                <button class="tab-btn active" data-tab="login">Вход</button>
+                <button class="tab-btn" data-tab="register">Регистрация</button>
+            </div>
+            
+            <form id="loginForm" class="auth-form active">
+                <h3>Вход в аккаунт</h3>
+                <div class="form-group">
+                    <label for="loginEmail">Email:</label>
+                    <input type="email" id="loginEmail" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Пароль:</label>
+                    <input type="password" id="loginPassword" name="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Войти</button>
+                <div class="auth-links">
+                    <a href="#" class="forgot-password">Забыли пароль?</a>
+                </div>
+            </form>
+
+            <form id="registerForm" class="auth-form">
+                <h3>Регистрация</h3>
+                <div class="form-group">
+                    <label for="regName">Имя:</label>
+                    <input type="text" id="regName" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="regEmail">Email:</label>
+                    <input type="email" id="regEmail" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="regPassword">Пароль:</label>
+                    <input type="password" id="regPassword" name="password" required minlength="6">
+                </div>
+                <div class="form-group">
+                    <label for="regConfirmPassword">Подтвердите пароль:</label>
+                    <input type="password" id="regConfirmPassword" name="confirmPassword" required>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" name="agree" required>
+                        Я согласен с <a href="#">правилами использования</a>
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Основной контент -->
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Лучшие компьютеры для работы и игр</h2>
+                <p>Широкий выбор ПК по доступным ценам с гарантией качества</p>
+                <button class="cta-btn" id="exploreBtn">
+                    <span class="btn-icon">🚀</span>
+                    Начать покупки
+                </button>
+            </div>
+            <div class="hero-image">
+                <div class="hero-placeholder">
+                    <span>🖥️</span>
+                    <p>Мощные компьютеры для любых задач</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="featured-products">
+            <h2>Популярные товары</h2>
+            
+            <!-- Фильтры -->
+            <div class="products-filter">
+                <button class="filter-btn active" data-filter="all">Все товары</button>
+                <button class="filter-btn" data-filter="gaming">Игровые</button>
+                <button class="filter-btn" data-filter="office">Офисные</button>
+                <button class="filter-btn" data-filter="budget">Бюджетные</button>
+                <button class="filter-btn" data-filter="workstation">Рабочие станции</button>
+            </div>
+            
+            <div class="products-grid" id="productsGrid">
+                <!-- Карточки товаров загружаются через JavaScript -->
+            </div>
+            
+            <div class="load-more-container">
+                <button id="loadMoreBtn" class="btn btn-secondary">
+                    <span class="btn-icon">⬇️</span>
+                    Показать еще
+                </button>
+            </div>
+        </section>
+
+        <!-- Корзина покупок -->
+        <div id="cartSidebar" class="cart-sidebar">
+            <div class="cart-header">
+                <h3>Корзина</h3>
+                <button class="close-cart">&times;</button>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <!-- Товары в корзине -->
+            </div>
+            <div class="cart-total">
+                <p>Итого: <span id="cartTotal">0</span> ₽</p>
+                <button class="btn btn-primary" id="checkoutBtn">
+                    <span class="btn-icon">💳</span>
+                    Оформить заказ
+                </button>
+            </div>
+        </div>
+
+        <!-- Кнопка корзины -->
+        <button class="cart-floating-btn" id="cartFloatingBtn">
+            <span class="cart-icon">🛒</span>
+            <span class="cart-count" id="cartCount">0</span>
+        </button>
+
+        <!-- Графические изображения с абсолютным позиционированием -->
+        <div class="absolute-images">
+            <div class="abs-img img1">
+                <div class="abs-icon">
+                    <img src="images/features/feature1.png" alt="Высокая производительность">
+                </div>
+                <span class="abs-label">Высокая производительность</span>
+            </div>
+            <div class="abs-img img2">
+                <div class="abs-icon">
+                    <img src="images/features/feature2.png" alt="Гарантия качества">
+                </div>
+                <span class="abs-label">Гарантия 3 года</span>
+            </div>
+            <div class="abs-img img3">
+                <div class="abs-icon">
+                    <img src="images/features/feature3.png" alt="Быстрая доставка">
+                </div>
+                <span class="abs-label">Быстрая доставка</span>
+            </div>
+            <div class="abs-img img4">
+                <div class="abs-icon">
+                    <img src="images/features/feature4.png" alt="Техподдержка 24/7">
+                </div>
+                <span class="abs-label">Поддержка 24/7</span>
+            </div>
+            <div class="abs-img img5">
+                <div class="abs-icon">
+                    <img src="images/features/feature5.png" alt="Сборка под заказ">
+                </div>
+                <span class="abs-label">Сборка под заказ</span>
+            </div>
+            <div class="abs-img img6">
+                <div class="abs-icon">
+                    <img src="images/features/feature6.png" alt="Рассрочка 0%">
+                </div>
+                <span class="abs-label">Рассрочка 0%</span>
+            </div>
+        </div>
+    </main>
+
+    <!-- Подвал -->
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2023 TechStore. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="api.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

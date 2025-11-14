@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты - TechStore</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Шапка сайта с меню -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-placeholder">TS</div>
+                <h1>TechStore</h1>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="product.html">Товары</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                    <li><button class="auth-btn" id="authButton">Войти</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Модальное окно авторизации -->
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="auth-tabs">
+                <button class="tab-btn active" data-tab="login">Вход</button>
+                <button class="tab-btn" data-tab="register">Регистрация</button>
+            </div>
+            
+            <form id="loginForm" class="auth-form active">
+                <h3>Вход в аккаунт</h3>
+                <div class="form-group">
+                    <label for="loginEmail">Email:</label>
+                    <input type="email" id="loginEmail" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Пароль:</label>
+                    <input type="password" id="loginPassword" name="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Войти</button>
+                <div class="auth-links">
+                    <a href="#" class="forgot-password">Забыли пароль?</a>
+                </div>
+            </form>
+
+            <form id="registerForm" class="auth-form">
+                <h3>Регистрация</h3>
+                <div class="form-group">
+                    <label for="regName">Имя:</label>
+                    <input type="text" id="regName" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="regEmail">Email:</label>
+                    <input type="email" id="regEmail" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="regPassword">Пароль:</label>
+                    <input type="password" id="regPassword" name="password" required minlength="6">
+                </div>
+                <div class="form-group">
+                    <label for="regConfirmPassword">Подтвердите пароль:</label>
+                    <input type="password" id="regConfirmPassword" name="confirmPassword" required>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" name="agree" required>
+                        Я согласен с <a href="#">правилами использования</a>
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Основной контент -->
+    <main>
+        <section class="contacts">
+            <h2>Контакты</h2>
+            <div class="slogan">
+                <p>TechStore - Технологии для вашего успеха!</p>
+            </div>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>Адрес магазина</h3>
+                    <p>1-я Красноармейская ул., Санкт-Петербург, 190005</p>
+                    <p>Бизнес-центр «ТехПлаза», 4 этаж</p>
+                    <p>Метро: Технологический институт (7 минут пешком)</p>
+                </div>
+                
+                <div class="contact-item">
+                    <h3>Телефоны</h3>
+                    <p>+7 (812) 123-45-67 - Отдел продаж</p>
+                    <p>+7 (812) 123-45-68 - Техническая поддержка</p>
+                    <p>+7 (812) 123-45-69 - Сервисный центр</p>
+                    <p>8-800-123-45-67 - Бесплатный по России</p>
+                </div>
+                
+                <div class="contact-item">
+                    <h3>Режим работы</h3>
+                    <p>Пн-Пт: 10:00 - 20:00</p>
+                    <p>Сб-Вс: 11:00 - 18:00</p>
+                    <p>Без перерыва на обед</p>
+                    <p>Техподдержка: круглосуточно</p>
+                </div>
+                
+                <div class="contact-item">
+                    <h3>Электронная почта</h3>
+                    <p>sales@techstore.ru - Отдел продаж</p>
+                    <p>support@techstore.ru - Техническая поддержка</p>
+                    <p>service@techstore.ru - Сервисный центр</p>
+                    <p>info@techstore.ru - Общие вопросы</p>
+                </div>
+
+                <div class="contact-item">
+                    <h3>Реквизиты компании</h3>
+                    <p>ООО "ТехСтор"</p>
+                    <p>ИНН: 1234567890</p>
+                    <p>ОГРН: 1234567890123</p>
+                    <p>Расчетный счет: 40702810123456789012</p>
+                </div>
+
+                <div class="contact-item">
+                    <h3>Социальные сети</h3>
+                    <p>VK: vk.com/techstore</p>
+                    <p>Telegram: t.me/techstore</p>
+                    <p>YouTube: youtube.com/techstore</p>
+                    <p>Instagram: instagram.com/techstore</p>
+                </div>
+            </div>
+
+            <div class="contact-form-section">
+                <h3>Обратная связь</h3>
+                <form class="contact-form" id="feedbackForm">
+                    <div class="form-group">
+                        <label for="name">Ваше имя:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Телефон:</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Тема сообщения:</label>
+                        <select id="subject" name="subject">
+                            <option value="general">Общий вопрос</option>
+                            <option value="sales">Консультация по товару</option>
+                            <option value="support">Техническая поддержка</option>
+                            <option value="service">Сервисное обслуживание</option>
+                            <option value="cooperation">Сотрудничество</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Сообщение:</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Отправить сообщение</button>
+                </form>
+            </div>
+            
+            <div class="map">
+                <h3>Мы на карте</h3>
+                <div class="map-placeholder">
+                    <div class="map-info">
+                        <h4>Как добраться:</h4>
+                        <p><strong>На метро:</strong> станция «Технологический институт», выход к 1-й Красноармейской улице, далее 7 минут пешком</p>
+                        <p><strong>На автомобиле:</strong> парковка на 30 мест рядом с бизнес-центром, первые 2 часа бесплатно</p>
+                        <p><strong>На автобусе:</strong> остановка «1-я Красноармейская ул.», маршруты 70, 71, 169</p>
+                    </div>
+                    <div class="map-image">
+                        <div class="map-visual">
+                            <div id="contactMap"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-section">
+                <h3>Часто задаваемые вопросы</h3>
+                <div class="faq-item">
+                    <h4>Есть ли доставка?</h4>
+                    <p>Да, мы осуществляем доставку по Санкт-Петербургу и Ленинградской области. Стоимость доставки по городу — 500 рублей, за КАД — от 1000 рублей. Бесплатная доставка при заказе от 50 000 рублей.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Какой срок гарантии?</h4>
+                    <p>На все компьютеры предоставляется гарантия от 12 до 60 месяцев в зависимости от модели. Гарантия включает бесплатное сервисное обслуживание и замену комплектующих.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Можно ли вернуть товар?</h4>
+                    <p>Да, в течение 14 дней с момента покупки вы можете вернуть товар надлежащего качества. Техника должна быть в оригинальной упаковке без следов использования.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Корзина покупок -->
+    <div id="cartSidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Корзина</h3>
+            <button class="close-cart">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Товары в корзине -->
+        </div>
+        <div class="cart-total">
+            <p>Итого: <span id="cartTotal">0</span> ₽</p>
+            <button class="btn btn-primary" id="checkoutBtn">
+                <span class="btn-icon">💳</span>
+                Оформить заказ
+            </button>
+        </div>
+    </div>
+
+    <!-- Кнопка корзины -->
+    <button class="cart-floating-btn" id="cartFloatingBtn">
+        <span class="cart-icon">🛒</span>
+        <span class="cart-count" id="cartCount">0</span>
+    </button>
+
+    <!-- Подвал -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>TechStore</h4>
+                    <p>Ваш надежный партнер в мире компьютерных технологий. Качество, надежность и лучший сервис.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Быстрые ссылки</h4>
+                    <ul>
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="product.html">Каталог товаров</a></li>
+                        <li><a href="contacts.html">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <p>1-я Красноармейская ул., Санкт-Петербург, 190005</p>
+                    <p>+7 (812) 123-45-67</p>
+                    <p>info@techstore.ru</p>
+                </div>
+            </div>
+            <p>&copy; 2023 TechStore. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="api.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Обработка формы обратной связи
+        document.addEventListener('DOMContentLoaded', function() {
+            const feedbackForm = document.getElementById('feedbackForm');
+            if (feedbackForm) {
+                feedbackForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    if (window.techStore) {
+                        window.techStore.showNotification('Сообщение отправлено! Мы свяжемся с вами в ближайшее время.', 'success');
+                        feedbackForm.reset();
+                    } else {
+                        alert('Сообщение отправлено! Мы свяжемся с вами в ближайшее время.');
+                        feedbackForm.reset();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
